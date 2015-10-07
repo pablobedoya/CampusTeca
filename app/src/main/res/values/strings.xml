@@ -1,4 +1,23 @@
 <resources>
     <string name="app_name">CampusTeca</string>
     <string name="action_settings">Settings</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+
+    <string name="nav_item_acervo">Acervo</string>
+    <string name="nav_item_avaliacoes">Avaliações</string>
+    <string name="nav_item_bibliotecas">Bibliotecas</string>
+
+    <!-- navigation drawer item labels  -->
+    <string-array name="nav_drawer_labels">
+        <item>@string/nav_item_acervo</item>
+        <item>@string/nav_item_avaliacoes</item>
+        <item>@string/nav_item_bibliotecas</item>
+    </string-array>
+
+    <string name="title_acervo">Acervo</string>
+    <string name="title_avaliacoes">Avaliações</string>
+    <string name="title_bibliotecas">Bibliotecas</string>
+    <string name="title_activity_create_review">CreateReviewActivity</string>
+
 </resources>
