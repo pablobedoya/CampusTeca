@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="br.ufrn.imd.campusteca.ArchiveActivity"
+    tools:showIn="@layout/activity_archive">
+
+    <ImageView
+        android:id="@+id/archiveImageView"
+        android:layout_width="100dp"
+        android:layout_height="140dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/archive" />
+
+    <TextView
+        android:id="@+id/archiveTitleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/archiveImageView"
+        android:layout_marginStart="20dp"
+        android:layout_toEndOf="@+id/archiveImageView"
+        android:text="Título do Arquivo"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/authorArchiveTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/archiveTitleTextView"
+        android:layout_below="@+id/archiveTitleTextView"
+        android:text="Autor do Arquivo"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/colorPrimary" />
+
+    <TextView
+        android:id="@+id/isbnTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/authorArchiveTextView"
+        android:layout_below="@+id/authorArchiveTextView"
+        android:text="ISBN"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <RatingBar
+        android:id="@+id/archiveRatingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/isbnTextView"
+        android:layout_below="@+id/isbnTextView" />
+
+    <TextView
+        android:id="@+id/publisherTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/archiveImageView"
+        android:layout_alignStart="@+id/archiveRatingBar"
+        android:text="Editora"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <LinearLayout
+        android:id="@+id/descriptionLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignEnd="@+id/archiveRatingBar"
+        android:layout_alignStart="@+id/archiveImageView"
+        android:layout_below="@+id/archiveImageView"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/archive_background"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/descriptionTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Descrição"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/reviewsLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignEnd="@+id/descriptionLinearLayout"
+        android:layout_alignStart="@+id/descriptionLinearLayout"
+        android:layout_below="@+id/descriptionLinearLayout"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/archive_background"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/reviewsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Resenhas"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/myReviewLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignEnd="@+id/reviewsLinearLayout"
+        android:layout_alignStart="@+id/reviewsLinearLayout"
+        android:layout_below="@+id/reviewsLinearLayout"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/archive_background"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/myReviewTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Minha Resenha"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    </LinearLayout>
+
+</RelativeLayout>

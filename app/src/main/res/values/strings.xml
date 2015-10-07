@@ -19,5 +19,6 @@
     <string name="title_avaliacoes">Avaliações</string>
     <string name="title_bibliotecas">Bibliotecas</string>
     <string name="title_activity_create_review">CreateReviewActivity</string>
+    <string name="title_activity_archive">ArchiveActivity</string>
 
 </resources>
