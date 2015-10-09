@@ -14,14 +14,12 @@
 
     <ImageView
         android:id="@+id/archiveImageView"
-        android:layout_width="100dp"
-        android:layout_height="140dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="80dp"
+        android:layout_height="120dp"
         android:scaleType="fitXY"
-        android:src="@drawable/archive" />
+        android:src="@drawable/archive"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:id="@+id/archiveTitleTextView"
@@ -37,47 +35,38 @@
         android:id="@+id/authorArchiveTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/archiveTitleTextView"
-        android:layout_below="@+id/archiveTitleTextView"
         android:text="Autor do Arquivo"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/colorPrimary" />
+        android:textColor="@color/colorPrimary"
+        android:layout_below="@+id/archiveTitleTextView"
+        android:layout_alignStart="@+id/archiveTitleTextView" />
 
     <TextView
         android:id="@+id/isbnTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/authorArchiveTextView"
-        android:layout_below="@+id/authorArchiveTextView"
         android:text="ISBN"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_below="@+id/authorArchiveTextView"
+        android:layout_alignStart="@+id/authorArchiveTextView" />
 
     <RatingBar
         android:id="@+id/archiveRatingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/isbnTextView"
-        android:layout_below="@+id/isbnTextView" />
-
-    <TextView
-        android:id="@+id/publisherTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/archiveImageView"
-        android:layout_alignStart="@+id/archiveRatingBar"
-        android:text="Editora"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:layout_below="@+id/isbnTextView"
+        android:layout_alignStart="@+id/isbnTextView" />
 
     <LinearLayout
         android:id="@+id/descriptionLinearLayout"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_alignEnd="@+id/archiveRatingBar"
         android:layout_alignStart="@+id/archiveImageView"
         android:layout_below="@+id/archiveImageView"
         android:layout_marginTop="20dp"
         android:background="@drawable/archive_background"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_alignParentEnd="true">
 
         <TextView
             android:id="@+id/descriptionTextView"
