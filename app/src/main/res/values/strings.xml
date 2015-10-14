@@ -20,5 +20,9 @@
     <string name="title_bibliotecas">Bibliotecas</string>
     <string name="title_activity_create_review">CreateReviewActivity</string>
     <string name="title_activity_archive">ArchiveActivity</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 
 </resources>
