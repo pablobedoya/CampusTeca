@@ -21,6 +21,7 @@ import br.ufrn.imd.campusteca.adapter.ListViewAdapter;
 import br.ufrn.imd.campusteca.model.ListViewItem;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
     private ListView listView;
     private ListViewAdapter listViewAdapter;
     private List<ListViewItem> itens;
@@ -125,4 +126,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         listViewAdapter = new ListViewAdapter(this, itens);
         listView.setAdapter(listViewAdapter);
     }
+
 }
