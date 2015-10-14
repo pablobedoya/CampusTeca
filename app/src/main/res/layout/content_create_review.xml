@@ -1,13 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/activity_create_review"
-    tools:context="br.ufrn.imd.campusteca.CreateReviewActivity">
+    tools:context="br.ufrn.imd.campusteca.CreateReviewActivity"
+    tools:showIn="@layout/activity_create_review">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/archiveCreateReviewImageView"
+                android:layout_width="80dp"
+                android:layout_height="120dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/archive" />
+
+            <TextView
+                android:id="@+id/archiveCreateReviewTitleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/archiveCreateReviewImageView"
+                android:layout_marginStart="20dp"
+                android:layout_toEndOf="@+id/archiveCreateReviewImageView"
+                android:text="Título do Arquivo"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/authorCreateReviewArchiveTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/archiveCreateReviewTitleTextView"
+                android:layout_below="@+id/archiveCreateReviewTitleTextView"
+                android:text="Autor do Arquivo"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/colorPrimary" />
+
+            <TextView
+                android:id="@+id/isbnCreateReviewTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/authorCreateReviewArchiveTextView"
+                android:layout_below="@+id/authorCreateReviewArchiveTextView"
+                android:text="ISBN"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <RatingBar
+                android:id="@+id/archiveCreateReviewRatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/isbnCreateReviewTextView"
+                android:layout_below="@+id/isbnCreateReviewTextView" />
+
+            <LinearLayout
+                android:id="@+id/descriptionCreateReviewLinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignStart="@+id/archiveCreateReviewImageView"
+                android:layout_below="@+id/archiveCreateReviewImageView"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/archive_background"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/descriptionCreateReviewTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Descrição"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/reviewTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/descriptionCreateReviewLinearLayout"
+                android:layout_marginTop="10dp"
+                android:text="Resenha"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <EditText
+                android:id="@+id/reviewEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
+                android:layout_alignEnd="@+id/descriptionCreateReviewLinearLayout"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/reviewTextView"
+                android:ems="10"
+                android:gravity="top"
+                android:hint="Diga a todos o que você pensa deste arquivo. Você o recomendaria? Por quê?"
+                android:inputType="textMultiLine" />
+
+            <Button
+                android:id="@+id/sendReviewButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/reviewEditText"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/reviewEditText"
+                android:text="Enviar Resenha" />
+
+        </RelativeLayout>
+    </ScrollView>
 
 </RelativeLayout>

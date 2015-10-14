@@ -12,106 +12,117 @@
     tools:context="br.ufrn.imd.campusteca.ArchiveActivity"
     tools:showIn="@layout/activity_archive">
 
-    <ImageView
-        android:id="@+id/archiveImageView"
-        android:layout_width="80dp"
-        android:layout_height="120dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/archive"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
 
-    <TextView
-        android:id="@+id/archiveTitleTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/archiveImageView"
-        android:layout_marginStart="20dp"
-        android:layout_toEndOf="@+id/archiveImageView"
-        android:text="Título do Arquivo"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/authorArchiveTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Autor do Arquivo"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/colorPrimary"
-        android:layout_below="@+id/archiveTitleTextView"
-        android:layout_alignStart="@+id/archiveTitleTextView" />
+            <ImageView
+                android:id="@+id/archiveImageView"
+                android:layout_width="80dp"
+                android:layout_height="120dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/archive" />
 
-    <TextView
-        android:id="@+id/isbnTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ISBN"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_below="@+id/authorArchiveTextView"
-        android:layout_alignStart="@+id/authorArchiveTextView" />
+            <TextView
+                android:id="@+id/archiveTitleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/archiveImageView"
+                android:layout_marginStart="20dp"
+                android:layout_toEndOf="@+id/archiveImageView"
+                android:text="Título do Arquivo"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <RatingBar
-        android:id="@+id/archiveRatingBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/isbnTextView"
-        android:layout_alignStart="@+id/isbnTextView" />
+            <TextView
+                android:id="@+id/authorArchiveTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/archiveTitleTextView"
+                android:layout_below="@+id/archiveTitleTextView"
+                android:text="Autor do Arquivo"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/colorPrimary" />
 
-    <LinearLayout
-        android:id="@+id/descriptionLinearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_alignStart="@+id/archiveImageView"
-        android:layout_below="@+id/archiveImageView"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/archive_background"
-        android:orientation="vertical"
-        android:layout_alignParentEnd="true">
+            <TextView
+                android:id="@+id/isbnTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/authorArchiveTextView"
+                android:layout_below="@+id/authorArchiveTextView"
+                android:text="ISBN"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        <TextView
-            android:id="@+id/descriptionTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Descrição"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-    </LinearLayout>
+            <RatingBar
+                android:id="@+id/archiveRatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/isbnTextView"
+                android:layout_below="@+id/isbnTextView" />
 
-    <LinearLayout
-        android:id="@+id/reviewsLinearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_alignEnd="@+id/descriptionLinearLayout"
-        android:layout_alignStart="@+id/descriptionLinearLayout"
-        android:layout_below="@+id/descriptionLinearLayout"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/archive_background"
-        android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/descriptionLinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignStart="@+id/archiveImageView"
+                android:layout_below="@+id/archiveImageView"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/archive_background"
+                android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/reviewsTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Resenhas"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/descriptionTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Descrição"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+            </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/myReviewLinearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_alignEnd="@+id/reviewsLinearLayout"
-        android:layout_alignStart="@+id/reviewsLinearLayout"
-        android:layout_below="@+id/reviewsLinearLayout"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/archive_background"
-        android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/reviewsLinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_alignEnd="@+id/descriptionLinearLayout"
+                android:layout_alignStart="@+id/descriptionLinearLayout"
+                android:layout_below="@+id/descriptionLinearLayout"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/archive_background"
+                android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/myReviewTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Minha Resenha"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/reviewsTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Resenhas"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/myReviewLinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_alignEnd="@+id/reviewsLinearLayout"
+                android:layout_alignStart="@+id/reviewsLinearLayout"
+                android:layout_below="@+id/reviewsLinearLayout"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/archive_background"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/myReviewTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Minha Resenha"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+            </LinearLayout>
+
+        </RelativeLayout>
+    </ScrollView>
 
 </RelativeLayout>
