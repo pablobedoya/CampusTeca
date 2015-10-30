@@ -67,7 +67,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/stay_signed_in"
-                android:id="@+id/checkBox"
+                android:id="@+id/staySignedInCheckBox"
                 android:checked="false"
                 android:layout_gravity="center_horizontal" />
 
