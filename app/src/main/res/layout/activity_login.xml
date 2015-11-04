@@ -25,7 +25,7 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/nickname_login_form"
+            android:id="@+id/username_login_form"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -35,10 +35,10 @@
                 android:layout_height="wrap_content">
 
                 <AutoCompleteTextView
-                    android:id="@+id/nickname"
+                    android:id="@+id/username"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/prompt_nickname"
+                    android:hint="@string/prompt_username"
                     android:inputType="text"
                     android:maxLines="1"
                     android:singleLine="true" />
@@ -67,12 +67,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/stay_signed_in"
-                android:id="@+id/checkBox"
+                android:id="@+id/staySignedInCheckBox"
                 android:checked="false"
                 android:layout_gravity="center_horizontal" />
 
             <Button
-                android:id="@+id/nickname_sign_in_button"
+                android:id="@+id/username_sign_in_button"
                 style="?android:textAppearanceSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

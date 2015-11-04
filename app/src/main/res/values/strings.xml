@@ -11,11 +11,11 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <!-- Strings related to login -->
-    <string name="prompt_nickname">Usuário</string>
+    <string name="prompt_username">Usuário</string>
     <string name="prompt_password">Senha</string>
     <string name="action_sign_in">ENTRAR</string>
     <string name="action_sign_in_short">Entrar</string>
-    <string name="error_invalid_nickname">Usuário inválido</string>
+    <string name="error_invalid_username">Usuário inválido</string>
     <string name="error_invalid_password">Senha inválida</string>
     <string name="error_incorrect_password">Senha incorreta</string>
     <string name="error_field_required">Campo obrigatório</string>

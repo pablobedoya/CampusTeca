@@ -34,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
     private UserLoginTask mAuthTask = null;
 
     // UI references.
-    private AutoCompleteTextView mNicknameView;
+    private AutoCompleteTextView mUsernameView;
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         // Set up the login form.
-        mNicknameView = (AutoCompleteTextView) findViewById(R.id.nickname);
+        mUsernameView = (AutoCompleteTextView) findViewById(R.id.username);
 
         mPasswordView = (EditText) findViewById(R.id.password);
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -59,8 +59,8 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        Button mNicknameSignInButton = (Button) findViewById(R.id.nickname_sign_in_button);
-        mNicknameSignInButton.setOnClickListener(new OnClickListener() {
+        Button mUsernameSignInButton = (Button) findViewById(R.id.username_sign_in_button);
+        mUsernameSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 attemptLogin();
@@ -77,11 +77,11 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         // Reset errors.
-        mNicknameView.setError(null);
+        mUsernameView.setError(null);
         mPasswordView.setError(null);
 
         // Store values at the time of the login attempt.
-        String nickname = mNicknameView.getText().toString();
+        String username = mUsernameView.getText().toString();
         String password = mPasswordView.getText().toString();
 
         boolean cancel = false;
@@ -94,14 +94,14 @@ public class LoginActivity extends AppCompatActivity {
             cancel = true;
         }
 
-        // Check for a valid email address.
-        if (TextUtils.isEmpty(nickname)) {
-            mNicknameView.setError(getString(R.string.error_field_required));
-            focusView = mNicknameView;
+        // Check for a valid username address.
+        if (TextUtils.isEmpty(username)) {
+            mUsernameView.setError(getString(R.string.error_field_required));
+            focusView = mUsernameView;
             cancel = true;
-        } else if (!isNicknameValid(nickname)) {
-            mNicknameView.setError(getString(R.string.error_invalid_nickname));
-            focusView = mNicknameView;
+        } else if (!isUsernameValid(username)) {
+            mUsernameView.setError(getString(R.string.error_invalid_username));
+            focusView = mUsernameView;
             cancel = true;
         }
 
@@ -113,14 +113,14 @@ public class LoginActivity extends AppCompatActivity {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
             showProgress(true);
-            mAuthTask = new UserLoginTask(nickname, password);
+            mAuthTask = new UserLoginTask(username, password);
             mAuthTask.execute((Void) null);
         }
     }
 
-    private boolean isNicknameValid(String nickname) {
+    private boolean isUsernameValid(String username) {
         //TODO: Replace this with your own logic
-        return nickname.length() > 4;
+        return username.length() > 4;
     }
 
     private boolean isPasswordValid(String password) {
@@ -166,11 +166,11 @@ public class LoginActivity extends AppCompatActivity {
 
     public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
 
-        private final String mEmail;
+        private final String mUsername;
         private final String mPassword;
 
-        UserLoginTask(String email, String password) {
-            mEmail = email;
+        UserLoginTask(String username, String password) {
+            mUsername = username;
             mPassword = password;
         }
 
@@ -187,7 +187,7 @@ public class LoginActivity extends AppCompatActivity {
 
             for (String credential : DUMMY_CREDENTIALS) {
                 String[] pieces = credential.split(":");
-                if (pieces[0].equals(mEmail)) {
+                if (pieces[0].equals(mUsername)) {
                     // Account exists, return true if the password matches.
                     return pieces[1].equals(mPassword);
                 }
