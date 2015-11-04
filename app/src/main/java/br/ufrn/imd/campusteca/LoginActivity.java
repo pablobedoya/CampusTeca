@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -32,6 +34,8 @@ public class LoginActivity extends AppCompatActivity {
      * Keep track of the login task to ensure we can cancel it if requested.
      */
     private UserLoginTask mAuthTask = null;
+
+    public static final String PREFS_NAME = "Preferences";
 
     // UI references.
     private AutoCompleteTextView mUsernameView;
@@ -69,7 +73,27 @@ public class LoginActivity extends AppCompatActivity {
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+
+        //Restaurar as Preferências gravadas
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+        mUsernameView.setText(settings.getString("Usuario", ""));
     }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        //Caso o checkbox esteja marcado gravamos o usuário
+        CheckBox checkBoxSalvar = (CheckBox) findViewById(R.id.staySignedInCheckBox);
+        if(checkBoxSalvar.isChecked()){
+            SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+            SharedPreferences.Editor editor = settings.edit();
+            editor.putString("Usuario", mUsernameView.getText().toString());
+            //Confirma a gravacao dos dados
+            editor.commit();
+        }
+    }
+
 
     private void attemptLogin() {
         if (mAuthTask != null) {
