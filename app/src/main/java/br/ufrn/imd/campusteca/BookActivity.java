@@ -3,21 +3,19 @@ package br.ufrn.imd.campusteca;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-public class ArchiveActivity extends AppCompatActivity {
+public class BookActivity extends AppCompatActivity {
 
     private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_archive);
+        setContentView(R.layout.activity_book);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -25,7 +23,7 @@ public class ArchiveActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ArchiveActivity.this, CreateReviewActivity.class);
+                Intent intent = new Intent(BookActivity.this, CreateReviewActivity.class);
                 startActivity(intent);
             }
         });

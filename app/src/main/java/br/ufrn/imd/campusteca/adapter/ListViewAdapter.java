@@ -42,8 +42,8 @@ public class ListViewAdapter extends BaseAdapter {
 
         view = mInflater.inflate(R.layout.item_list_view, null);
 
-        ((TextView) view.findViewById(R.id.archiveTitleTextView)).setText(item.getTitle());
-        ((ImageView) view.findViewById(R.id.archiveImageView)).setImageResource(item.getImage());
+        ((TextView) view.findViewById(R.id.bookTitleTextView)).setText(item.getTitle());
+        ((ImageView) view.findViewById(R.id.bookImageView)).setImageResource(item.getImage());
 
         return view;
     }

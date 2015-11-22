@@ -21,21 +21,21 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/archiveCreateReviewImageView"
+                android:id="@+id/bookCreateReviewImageView"
                 android:layout_width="80dp"
                 android:layout_height="120dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:scaleType="fitXY"
-                android:src="@drawable/archive" />
+                android:src="@drawable/book" />
 
             <TextView
-                android:id="@+id/archiveCreateReviewTitleTextView"
+                android:id="@+id/bookCreateReviewTitleTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/archiveCreateReviewImageView"
+                android:layout_alignTop="@+id/bookCreateReviewImageView"
                 android:layout_marginStart="20dp"
-                android:layout_toEndOf="@+id/archiveCreateReviewImageView"
+                android:layout_toEndOf="@+id/bookCreateReviewImageView"
                 android:text="Título do Arquivo"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -43,8 +43,8 @@
                 android:id="@+id/authorCreateReviewArchiveTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/archiveCreateReviewTitleTextView"
-                android:layout_below="@+id/archiveCreateReviewTitleTextView"
+                android:layout_alignStart="@+id/bookCreateReviewTitleTextView"
+                android:layout_below="@+id/bookCreateReviewTitleTextView"
                 android:text="Autor do Arquivo"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/colorPrimary" />
@@ -59,7 +59,7 @@
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <RatingBar
-                android:id="@+id/archiveCreateReviewRatingBar"
+                android:id="@+id/bookCreateReviewRatingBar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignStart="@+id/isbnCreateReviewTextView"
@@ -70,10 +70,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_alignParentEnd="true"
-                android:layout_alignStart="@+id/archiveCreateReviewImageView"
-                android:layout_below="@+id/archiveCreateReviewImageView"
+                android:layout_alignStart="@+id/bookCreateReviewImageView"
+                android:layout_below="@+id/bookCreateReviewImageView"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/archive_background"
+                android:background="@drawable/book_background"
                 android:orientation="vertical">
 
                 <TextView

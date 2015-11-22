@@ -9,8 +9,8 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="br.ufrn.imd.campusteca.ArchiveActivity"
-    tools:showIn="@layout/activity_archive">
+    tools:context="br.ufrn.imd.campusteca.BookActivity"
+    tools:showIn="@layout/activity_book">
 
     <ScrollView
         android:layout_width="fill_parent"
@@ -21,31 +21,31 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/archiveImageView"
+                android:id="@+id/bookImageView"
                 android:layout_width="80dp"
                 android:layout_height="120dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:scaleType="fitXY"
-                android:src="@drawable/archive" />
+                android:src="@drawable/book" />
 
             <TextView
-                android:id="@+id/archiveTitleTextView"
+                android:id="@+id/bookTitleTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/archiveImageView"
+                android:layout_alignTop="@+id/bookImageView"
                 android:layout_marginStart="20dp"
-                android:layout_toEndOf="@+id/archiveImageView"
-                android:text="Título do Arquivo"
+                android:layout_toEndOf="@+id/bookImageView"
+                android:text="Título do Livro"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <TextView
-                android:id="@+id/authorArchiveTextView"
+                android:id="@+id/authorBookTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/archiveTitleTextView"
-                android:layout_below="@+id/archiveTitleTextView"
-                android:text="Autor do Arquivo"
+                android:layout_alignStart="@+id/bookTitleTextView"
+                android:layout_below="@+id/bookTitleTextView"
+                android:text="Autor do Livro"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/colorPrimary" />
 
@@ -53,13 +53,13 @@
                 android:id="@+id/isbnTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/authorArchiveTextView"
-                android:layout_below="@+id/authorArchiveTextView"
+                android:layout_alignStart="@+id/authorBookTextView"
+                android:layout_below="@+id/authorBookTextView"
                 android:text="ISBN"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <RatingBar
-                android:id="@+id/archiveRatingBar"
+                android:id="@+id/bookRatingBar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignStart="@+id/isbnTextView"
@@ -70,10 +70,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_alignParentEnd="true"
-                android:layout_alignStart="@+id/archiveImageView"
-                android:layout_below="@+id/archiveImageView"
+                android:layout_alignStart="@+id/bookImageView"
+                android:layout_below="@+id/bookImageView"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/archive_background"
+                android:background="@drawable/book_background"
                 android:orientation="vertical">
 
                 <TextView
@@ -92,7 +92,7 @@
                 android:layout_alignStart="@+id/descriptionLinearLayout"
                 android:layout_below="@+id/descriptionLinearLayout"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/archive_background"
+                android:background="@drawable/book_background"
                 android:orientation="vertical">
 
                 <TextView
@@ -111,7 +111,7 @@
                 android:layout_alignStart="@+id/reviewsLinearLayout"
                 android:layout_below="@+id/reviewsLinearLayout"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/archive_background"
+                android:background="@drawable/book_background"
                 android:orientation="vertical">
 
                 <TextView

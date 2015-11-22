@@ -2,8 +2,6 @@ package br.ufrn.imd.campusteca;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -29,7 +27,7 @@ public class CreateReviewActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String review = reviewEditText.getText().toString();
-                Intent intent = new Intent(CreateReviewActivity.this, ArchiveActivity.class);
+                Intent intent = new Intent(CreateReviewActivity.this, BookActivity.class);
                 intent.putExtra("EXTRA_REVIEW", review);
                 startActivity(intent);
             }

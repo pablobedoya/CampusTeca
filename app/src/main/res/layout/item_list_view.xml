@@ -11,13 +11,13 @@
         android:padding="5sp">
 
         <ImageView
-            android:id="@+id/archiveImageView"
+            android:id="@+id/bookImageView"
             android:layout_width="50dp"
             android:layout_height="70dp"
             android:scaleType="fitXY" />
 
         <TextView
-            android:id="@+id/archiveTitleTextView"
+            android:id="@+id/bookTitleTextView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="5sp"

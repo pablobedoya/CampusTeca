@@ -42,11 +42,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        listView = (ListView) findViewById(R.id.archiveListView);
+        listView = (ListView) findViewById(R.id.bookListView);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(MainActivity.this, ArchiveActivity.class);
+                Intent intent = new Intent(MainActivity.this, BookActivity.class);
                 startActivity(intent);
             }
         });
@@ -113,10 +113,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void loadData() {
         itens = new ArrayList<ListViewItem>();
-        ListViewItem item1 = new ListViewItem("Título do Arquivo", R.drawable.archive);
-        ListViewItem item2 = new ListViewItem("Título do Arquivo", R.drawable.archive);
-        ListViewItem item3 = new ListViewItem("Título do Arquivo", R.drawable.archive);
-        ListViewItem item4 = new ListViewItem("Título do Arquivo", R.drawable.archive);
+        ListViewItem item1 = new ListViewItem("Título do Arquivo", R.drawable.book);
+        ListViewItem item2 = new ListViewItem("Título do Arquivo", R.drawable.book);
+        ListViewItem item3 = new ListViewItem("Título do Arquivo", R.drawable.book);
+        ListViewItem item4 = new ListViewItem("Título do Arquivo", R.drawable.book);
 
         itens.add(item1);
         itens.add(item2);
