@@ -18,13 +18,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.ufrn.imd.campusteca.adapter.ListViewAdapter;
-import br.ufrn.imd.campusteca.model.ListViewItem;
+import br.ufrn.imd.campusteca.model.Book;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private ListView listView;
     private ListViewAdapter listViewAdapter;
-    private List<ListViewItem> itens;
+    private List<Book> books;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,18 +112,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void loadData() {
-        itens = new ArrayList<ListViewItem>();
-        ListViewItem item1 = new ListViewItem("Título do Arquivo", R.drawable.book);
-        ListViewItem item2 = new ListViewItem("Título do Arquivo", R.drawable.book);
-        ListViewItem item3 = new ListViewItem("Título do Arquivo", R.drawable.book);
-        ListViewItem item4 = new ListViewItem("Título do Arquivo", R.drawable.book);
+        books = new ArrayList<Book>();
+        Book item1 = new Book("Autor 1", "Título do Livro 1", "1", "2001", 1, 1, R.drawable.book);
+        Book item2 = new Book("Autor 2", "Título do Livro 2", "2", "2002", 2, 2, R.drawable.book);
+        Book item3 = new Book("Autor 3", "Título do Livro 3", "3", "2003", 3, 3, R.drawable.book);
+        Book item4 = new Book("Autor 4", "Título do Livro 4", "4", "2004", 4, 4, R.drawable.book);
 
-        itens.add(item1);
-        itens.add(item2);
-        itens.add(item3);
-        itens.add(item4);
+        books.add(item1);
+        books.add(item2);
+        books.add(item3);
+        books.add(item4);
 
-        listViewAdapter = new ListViewAdapter(this, itens);
+        listViewAdapter = new ListViewAdapter(this, books);
         listView.setAdapter(listViewAdapter);
     }
 

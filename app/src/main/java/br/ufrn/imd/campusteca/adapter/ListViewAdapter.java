@@ -11,26 +11,26 @@ import android.widget.TextView;
 import java.util.List;
 
 import br.ufrn.imd.campusteca.R;
-import br.ufrn.imd.campusteca.model.ListViewItem;
+import br.ufrn.imd.campusteca.model.Book;
 
 /**
  * Created by Pablo Gabriel on 07/10/2015.
  */
 public class ListViewAdapter extends BaseAdapter {
     private LayoutInflater mInflater;
-    private List<ListViewItem> itens;
+    private List<Book> books;
 
-    public ListViewAdapter(Context context, List<ListViewItem> itens) {
+    public ListViewAdapter(Context context, List<Book> books) {
         this.mInflater = LayoutInflater.from(context);
-        this.itens = itens;
+        this.books = books;
     }
 
     public int getCount() {
-        return itens.size();
+        return books.size();
     }
 
-    public ListViewItem getItem(int position) {
-        return itens.get(position);
+    public Book getItem(int position) {
+        return books.get(position);
     }
 
     public long getItemId(int position) {
@@ -38,12 +38,15 @@ public class ListViewAdapter extends BaseAdapter {
     }
 
     public View getView(int position, View view, ViewGroup parent) {
-        ListViewItem item = itens.get(position);
+        Book item = books.get(position);
 
         view = mInflater.inflate(R.layout.item_list_view, null);
 
-        ((TextView) view.findViewById(R.id.bookTitleTextView)).setText(item.getTitle());
         ((ImageView) view.findViewById(R.id.bookImageView)).setImageResource(item.getImage());
+        ((TextView) view.findViewById(R.id.bookTitleTextView)).setText(item.getTitle());
+        ((TextView) view.findViewById(R.id.bookAuthorTextView)).setText(item.getAuthor());
+        ((TextView) view.findViewById(R.id.bookEditionTextView)).setText(item.getEdition());
+        ((TextView) view.findViewById(R.id.bookYearTextView)).setText(item.getYear());
 
         return view;
     }

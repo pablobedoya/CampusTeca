@@ -22,8 +22,8 @@
 
             <ImageView
                 android:id="@+id/bookImageView"
-                android:layout_width="80dp"
-                android:layout_height="120dp"
+                android:layout_width="90dp"
+                android:layout_height="130dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:scaleType="fitXY"
@@ -34,10 +34,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignTop="@+id/bookImageView"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="10dp"
                 android:layout_toEndOf="@+id/bookImageView"
                 android:text="Título do Livro"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView
                 android:id="@+id/authorBookTextView"
@@ -46,24 +46,31 @@
                 android:layout_alignStart="@+id/bookTitleTextView"
                 android:layout_below="@+id/bookTitleTextView"
                 android:text="Autor do Livro"
-                android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/colorPrimary" />
 
             <TextView
-                android:id="@+id/isbnTextView"
+                android:id="@+id/editionTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignStart="@+id/authorBookTextView"
                 android:layout_below="@+id/authorBookTextView"
-                android:text="ISBN"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:text="Edição" />
+
+            <TextView
+                android:id="@+id/yearTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/editionTextView"
+                android:layout_below="@+id/editionTextView"
+                android:text="Ano" />
 
             <RatingBar
                 android:id="@+id/bookRatingBar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/isbnTextView"
-                android:layout_below="@+id/isbnTextView" />
+                android:layout_alignStart="@+id/yearTextView"
+                android:layout_below="@+id/yearTextView"
+                android:isIndicator="true" />
 
             <LinearLayout
                 android:id="@+id/descriptionLinearLayout"
