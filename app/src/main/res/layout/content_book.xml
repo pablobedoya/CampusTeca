@@ -65,7 +65,7 @@
                 android:text="Ano" />
 
             <RatingBar
-                android:id="@+id/bookRatingBar"
+                android:id="@+id/bookIndicatorRatingBar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignStart="@+id/yearTextView"
@@ -73,47 +73,33 @@
                 android:isIndicator="true" />
 
             <LinearLayout
-                android:id="@+id/descriptionLinearLayout"
+                android:id="@+id/reviewsLinearLayout"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="190dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignStart="@+id/bookImageView"
                 android:layout_below="@+id/bookImageView"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/book_background"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/descriptionTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Descrição"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/reviewsLinearLayout"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_alignEnd="@+id/descriptionLinearLayout"
-                android:layout_alignStart="@+id/descriptionLinearLayout"
-                android:layout_below="@+id/descriptionLinearLayout"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/book_background"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/reviewsTextView"
+                    android:id="@+id/reviewsLabelTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Resenhas"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                <TextView
+                    android:id="@+id/myReviewTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/myReviewLinearLayout"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="130dp"
                 android:layout_alignEnd="@+id/reviewsLinearLayout"
                 android:layout_alignStart="@+id/reviewsLinearLayout"
                 android:layout_below="@+id/reviewsLinearLayout"
@@ -122,17 +108,17 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/myReviewTextView"
+                    android:id="@+id/myReviewLabelTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Minha Resenha"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
                 <TextView
+                    android:id="@+id/myReviewTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:id="@+id/textView2" />
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
             </LinearLayout>
 
         </RelativeLayout>

@@ -2,7 +2,6 @@ package br.ufrn.imd.campusteca;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -18,22 +17,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.Toast;
-
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.VolleyLog;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import br.ufrn.imd.campusteca.adapter.ListViewAdapter;
-import br.ufrn.imd.campusteca.api.OAuthTokenRequest;
 import br.ufrn.imd.campusteca.model.Book;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -41,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private EditText paramEditText;
     private Spinner targetSpinner;
     private Button searchBooksButton;
-    private ListView listView;
+    private ListView booksListView;
     private ListViewAdapter listViewAdapter;
     private List<Book> books;
 
@@ -107,11 +95,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-        listView = (ListView) findViewById(R.id.booksListView);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        booksListView = (ListView) findViewById(R.id.booksListView);
+        booksListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(MainActivity.this, BookActivity.class);
+                intent.putExtra("EXTRA_BOOK", listViewAdapter.getItem(position));
                 startActivity(intent);
             }
         });
@@ -179,6 +168,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         /*
          * Mock object for book
+         */
         Book item1 = new Book("Autor 1", "Título do Livro 1", "1", "2001", 1, 1, R.drawable.book);
         Book item2 = new Book("Autor 2", "Título do Livro 2", "2", "2002", 2, 2, R.drawable.book);
         Book item3 = new Book("Autor 3", "Título do Livro 3", "3", "2003", 3, 3, R.drawable.book);
@@ -188,8 +178,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         books.add(item2);
         books.add(item3);
         books.add(item4);
-        */
 
+        listViewAdapter = new ListViewAdapter(MainActivity.this, books);
+        booksListView.setAdapter(listViewAdapter);
+
+        /*
         String url = "http://apitestes.info.ufrn.br/biblioteca-services/services/consulta/biblioteca";
         OAuthTokenRequest.getInstance().resourceRequest(this, Request.Method.GET, url + target + param, new Response.Listener<String>() {
             @Override
@@ -207,15 +200,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         book.setEdition(jsonObject.getString("edicao"));
                         book.setYear(jsonObject.getString("ano"));
                         book.setQuantity(jsonObject.getInt("quantidade"));
-                        book.setRegistration(jsonObject.getInt("registroSistema"));
+                        book.setRegistry(jsonObject.getInt("registroSistema"));
+                        book.setImage(R.drawable.book);
 
                         books.add(book);
                     }
 
                     listViewAdapter = new ListViewAdapter(MainActivity.this, books);
-                    listView.setAdapter(listViewAdapter);
-
-                    Log.d("quantidade", String.valueOf(books.size()));
+                    booksListView.setAdapter(listViewAdapter);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -229,5 +221,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 // hide the progress dialog
             }
         });
+        */
     }
 }

@@ -22,8 +22,8 @@
 
             <ImageView
                 android:id="@+id/bookCreateReviewImageView"
-                android:layout_width="80dp"
-                android:layout_height="120dp"
+                android:layout_width="90dp"
+                android:layout_height="130dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:scaleType="fitXY"
@@ -34,84 +34,71 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignTop="@+id/bookCreateReviewImageView"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="10dp"
                 android:layout_toEndOf="@+id/bookCreateReviewImageView"
-                android:text="Título do Arquivo"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:text="Título do Livro"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView
-                android:id="@+id/authorCreateReviewArchiveTextView"
+                android:id="@+id/authorCreateReviewBookTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignStart="@+id/bookCreateReviewTitleTextView"
                 android:layout_below="@+id/bookCreateReviewTitleTextView"
-                android:text="Autor do Arquivo"
-                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Autor do Livro"
                 android:textColor="@color/colorPrimary" />
 
             <TextView
-                android:id="@+id/isbnCreateReviewTextView"
+                android:id="@+id/editionCreateReviewBookTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/authorCreateReviewArchiveTextView"
-                android:layout_below="@+id/authorCreateReviewArchiveTextView"
-                android:text="ISBN"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-
-            <RatingBar
-                android:id="@+id/bookCreateReviewRatingBar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/isbnCreateReviewTextView"
-                android:layout_below="@+id/isbnCreateReviewTextView" />
-
-            <LinearLayout
-                android:id="@+id/descriptionCreateReviewLinearLayout"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignStart="@+id/bookCreateReviewImageView"
-                android:layout_below="@+id/bookCreateReviewImageView"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/book_background"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/descriptionCreateReviewTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Descrição"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
-            </LinearLayout>
+                android:layout_alignStart="@+id/authorCreateReviewBookTextView"
+                android:layout_below="@+id/authorCreateReviewBookTextView"
+                android:text="Edição" />
 
             <TextView
-                android:id="@+id/reviewTextView"
+                android:id="@+id/yearCreateReviewTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/descriptionCreateReviewLinearLayout"
+                android:layout_alignStart="@+id/editionCreateReviewBookTextView"
+                android:layout_below="@+id/editionCreateReviewBookTextView"
+                android:text="Ano" />
+
+            <RatingBar
+                android:id="@+id/reviewRatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/yearCreateReviewTextView"
+                android:layout_below="@+id/yearCreateReviewTextView" />
+
+            <TextView
+                android:id="@+id/reviewLabelTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Resenha"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_below="@+id/bookCreateReviewImageView" />
 
             <EditText
-                android:id="@+id/reviewEditText"
+                android:id="@+id/reviewDescriptionEditText"
                 android:layout_width="wrap_content"
                 android:layout_height="200dp"
-                android:layout_alignEnd="@+id/descriptionCreateReviewLinearLayout"
                 android:layout_alignParentStart="true"
-                android:layout_below="@+id/reviewTextView"
+                android:layout_below="@+id/reviewLabelTextView"
                 android:ems="10"
                 android:gravity="top"
-                android:hint="Diga a todos o que você pensa deste arquivo. Você o recomendaria? Por quê?"
-                android:inputType="textMultiLine" />
+                android:hint="Diga a todos o que você acha deste livro. Você o recomendaria? Por quê?"
+                android:inputType="textMultiLine"
+                android:layout_alignParentEnd="true" />
 
             <Button
                 android:id="@+id/sendReviewButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignEnd="@+id/reviewEditText"
+                android:layout_alignEnd="@+id/reviewDescriptionEditText"
                 android:layout_alignParentStart="true"
-                android:layout_below="@+id/reviewEditText"
+                android:layout_below="@+id/reviewDescriptionEditText"
                 android:text="Enviar Resenha" />
 
         </RelativeLayout>

@@ -1,27 +1,29 @@
 package br.ufrn.imd.campusteca.model;
 
+import java.io.Serializable;
+
 /**
  * Created by Pablo Gabriel on 22/11/2015.
  */
-public class Book {
+public class Book implements Serializable {
     String author;
     String title;
     String edition;
     String year;
     int quantity;
-    int registration;
+    int registry;
     int image;
 
     public Book() {
     }
 
-    public Book(String author, String title, String edition, String year, int quantity, int registration, int image) {
+    public Book(String author, String title, String edition, String year, int quantity, int registry, int image) {
         this.author = author;
         this.title = title;
         this.edition = edition;
         this.year = year;
         this.quantity = quantity;
-        this.registration = registration;
+        this.registry = registry;
         this.image = image;
     }
 
@@ -65,12 +67,12 @@ public class Book {
         this.quantity = quantity;
     }
 
-    public int getRegistration() {
-        return registration;
+    public int getRegistry() {
+        return registry;
     }
 
-    public void setRegistration(int registration) {
-        this.registration = registration;
+    public void setRegistry(int registry) {
+        this.registry = registry;
     }
 
     public int getImage() {
