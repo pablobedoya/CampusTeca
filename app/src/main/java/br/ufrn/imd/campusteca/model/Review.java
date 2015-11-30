@@ -6,35 +6,43 @@ import java.io.Serializable;
  * Created by Pablo Gabriel on 23/11/2015.
  */
 public class Review implements Serializable {
-    private String idUser;
-    private String idBook;
+    private int idBook;
+    private String username;
+    private float rating;
     private String description;
-    private int rating;
 
     public Review() {
     }
 
-    public Review(String idUser, String idBook, String description, int rating) {
-        this.idUser = idUser;
+    public Review(int idBook, String username, String description, int rating) {
         this.idBook = idBook;
-        this.description = description;
+        this.username = username;
         this.rating = rating;
+        this.description = description;
     }
 
-    public String getIdUser() {
-        return idUser;
-    }
-
-    public void setIdUser(String idUser) {
-        this.idUser = idUser;
-    }
-
-    public String getIdBook() {
+    public int getIdBook() {
         return idBook;
     }
 
-    public void setIdBook(String idBook) {
+    public void setIdBook(int idBook) {
         this.idBook = idBook;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public float getRating() {
+        return rating;
+    }
+
+    public void setRating(float rating) {
+        this.rating = rating;
     }
 
     public String getDescription() {
@@ -43,13 +51,5 @@ public class Review implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public int getRating() {
-        return rating;
-    }
-
-    public void setRating(int rating) {
-        this.rating = rating;
     }
 }

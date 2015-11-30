@@ -18,13 +18,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import br.ufrn.imd.campusteca.model.Review;
-
 /**
  * Created by Pablo Gabriel on 23/11/2015.
  */
 public class ReviewRequest extends AsyncTask<HashMap<String, String>, Void, List<Map<String, String>>> {
-    private String url = "http://campusteca-pablobedoya.rhcloud.com/book";
+    private String url = "http://campusteca-pablobedoya.rhcloud.com";
     private String target;
     private String method;
     private List<String> keys;
@@ -60,7 +58,7 @@ public class ReviewRequest extends AsyncTask<HashMap<String, String>, Void, List
             conn.setConnectTimeout(15000);
             conn.setRequestMethod(method);
             conn.setDoInput(true);
-            conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+            conn.setRequestProperty("Content-Type", "application/json");
 
             if (params != null && params.length > 0) {
                 HashMap<String, String> map = params[0];

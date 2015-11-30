@@ -81,7 +81,8 @@
                 android:layout_below="@+id/bookImageView"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/book_background"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:weightSum="1">
 
                 <TextView
                     android:id="@+id/reviewsLabelTextView"
@@ -90,10 +91,24 @@
                     android:text="Resenhas"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
                 <TextView
-                    android:id="@+id/myReviewTextView"
+                    android:id="@+id/reviewsTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <ListView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/listView"
+                    android:layout_weight="1" />
+
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mostrar Mais"
+                    android:id="@+id/showMoreButton"
+                    android:layout_gravity="right" />
             </LinearLayout>
 
             <LinearLayout

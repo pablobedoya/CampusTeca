@@ -1,6 +1,8 @@
 package br.ufrn.imd.campusteca;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -17,11 +19,22 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import br.ufrn.imd.campusteca.adapter.ListViewAdapter;
+import br.ufrn.imd.campusteca.adapter.BookAdapter;
+import br.ufrn.imd.campusteca.api.OAuthTokenRequest;
 import br.ufrn.imd.campusteca.model.Book;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -30,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private Spinner targetSpinner;
     private Button searchBooksButton;
     private ListView booksListView;
-    private ListViewAdapter listViewAdapter;
+    private BookAdapter bookAdapter;
     private List<Book> books;
 
     @Override
@@ -48,6 +61,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        setUsername();
 
         paramEditText = (EditText) findViewById(R.id.paramEditText);
 
@@ -100,7 +115,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(MainActivity.this, BookActivity.class);
-                intent.putExtra("EXTRA_BOOK", listViewAdapter.getItem(position));
+                intent.putExtra("EXTRA_BOOK", bookAdapter.getItem(position));
                 startActivity(intent);
             }
         });
@@ -163,12 +178,40 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
+    private void setUsername() {
+        String url = "http://apitestes.info.ufrn.br/usuario-services/services/usuario/info";
+        OAuthTokenRequest.getInstance().resourceRequest(this, Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+
+                    String username = jsonObject.getString("login");
+
+                    SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("username", username);
+                    editor.commit();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.d("SAIDA", "Error: " + error.getMessage());
+                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                // hide the progress dialog
+            }
+        });
+
+    }
+
     private void searchBooks(String target, String param) {
         books = new ArrayList<Book>();
 
         /*
-         * Mock object for book
-         */
         Book item1 = new Book("Autor 1", "Título do Livro 1", "1", "2001", 1, 1, R.drawable.book);
         Book item2 = new Book("Autor 2", "Título do Livro 2", "2", "2002", 2, 2, R.drawable.book);
         Book item3 = new Book("Autor 3", "Título do Livro 3", "3", "2003", 3, 3, R.drawable.book);
@@ -179,10 +222,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         books.add(item3);
         books.add(item4);
 
-        listViewAdapter = new ListViewAdapter(MainActivity.this, books);
-        booksListView.setAdapter(listViewAdapter);
+        bookAdapter = new BookAdapter(MainActivity.this, books);
+        booksListView.setAdapter(bookAdapter);
+        */
 
-        /*
         String url = "http://apitestes.info.ufrn.br/biblioteca-services/services/consulta/biblioteca";
         OAuthTokenRequest.getInstance().resourceRequest(this, Request.Method.GET, url + target + param, new Response.Listener<String>() {
             @Override
@@ -206,8 +249,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         books.add(book);
                     }
 
-                    listViewAdapter = new ListViewAdapter(MainActivity.this, books);
-                    booksListView.setAdapter(listViewAdapter);
+                    bookAdapter = new BookAdapter(MainActivity.this, books);
+                    booksListView.setAdapter(bookAdapter);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -221,6 +264,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 // hide the progress dialog
             }
         });
-        */
     }
 }

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/userThumbnail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5sp">
+
+        <ImageView
+            android:id="@+id/bookImageView"
+            android:layout_width="50dp"
+            android:layout_height="70dp"
+            android:scaleType="fitXY" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/reviewUsernameTextViewListView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/userThumbnail"
+        android:layout_toRightOf="@+id/userThumbnail"
+        android:text="username" />
+
+    <RatingBar
+        android:id="@+id/reviewRatingBarListView"
+        style="?android:attr/ratingBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/reviewUsernameTextViewListView"
+        android:layout_marginTop="1dp"
+        android:layout_toRightOf="@+id/userThumbnail"
+        android:isIndicator="true" />
+
+    <TextView
+        android:id="@+id/reviewDescriptionTextViewListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/reviewRatingBarListView"
+        android:layout_marginTop="1dp"
+        android:layout_toRightOf="@+id/userThumbnail"
+        android:text="description" />
+
+</RelativeLayout>

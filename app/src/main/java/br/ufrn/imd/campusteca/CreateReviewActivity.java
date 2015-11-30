@@ -1,5 +1,7 @@
 package br.ufrn.imd.campusteca;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -15,6 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 import br.ufrn.imd.campusteca.api.ReviewRequest;
+import br.ufrn.imd.campusteca.dao.ReviewDAO;
 import br.ufrn.imd.campusteca.model.Book;
 
 public class CreateReviewActivity extends AppCompatActivity {
@@ -59,26 +62,17 @@ public class CreateReviewActivity extends AppCompatActivity {
         sendReviewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int rating = reviewRatingBar.getNumStars();
+                float rating = reviewRatingBar.getRating();
                 String description = reviewDescriptionEditText.getText().toString();
-                sendReview(book.getRegistry(), 10, rating, description);
+
+                SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
+                String username = preferences.getString("username", "");
+
+                ReviewDAO dao = new ReviewDAO();
+                dao.sendReview(book.getRegistry(), username, rating, description);
 
                 finish();
             }
         });
     }
-
-    private void sendReview(int idBook, int idUser, int rating, String description) {
-        try {
-            List<String> keys = new ArrayList<String>();
-            keys.add("status");
-
-            List<Map<String, String>> result = new ReviewRequest("/create/" + idBook + "/" + idUser + "/" + rating + "/" + URLEncoder.encode(description, "utf-8"), "GET", keys).execute().get();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-
 }
