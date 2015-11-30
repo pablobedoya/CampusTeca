@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -68,9 +67,6 @@ public class CreateReviewActivity extends AppCompatActivity {
 
                 SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
                 String username = preferences.getString("username", "");
-
-                Log.d("o autor ", "é: " + book.getAuthor());
-                Log.d("o registro ", "é: " + book.getRegistry());
 
                 ReviewDAO dao = new ReviewDAO();
                 dao.sendReview(book.getRegistry(), username, rating, description);
