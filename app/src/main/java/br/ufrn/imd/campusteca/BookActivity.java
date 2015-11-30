@@ -63,6 +63,7 @@ public class BookActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(BookActivity.this, CreateReviewActivity.class);
+                intent.putExtra("EXTRA_BOOK", book);
                 startActivity(intent);
             }
         });
